@@ -32,9 +32,17 @@ my $t = Throttle->new(
 #   'rpm'               => Requests per minute
 #   'timer_key'         => Redis key that hold the value of the timer (Defaults to 't:timer')
 
-# The throttle() function will block until enough time has passed
-# (based on what 'rpm' was set to) for the next operation / request
-# to go through.
+$t = Throttle->new(
+    'count_key'         => 't:mycustomcounter',
+    'redis_db'          => 1,
+    'reset_threshold'   => 15000000,
+    'rpm'               => 60,
+    'timer_key'         => 't:mycustomtimer',
+);
+
+The throttle() function will block until enough time has passed
+(based on what 'rpm' was set to) for the next operation / request
+to go through.
 
 $t->throttle();
 
