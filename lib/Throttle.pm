@@ -3,7 +3,6 @@ package Throttle;
 use strict;
 use warnings;
 
-use Cache::Memcached::Fast ();
 use Data::Dumper ();
 use Utils::Redis ();
 use Utils::Semaphore ();
